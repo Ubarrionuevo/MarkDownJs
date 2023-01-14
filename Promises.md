@@ -3,6 +3,16 @@
 <br>
 <br>
 
+# Resources
+
+> https://lenguajejs.com/
+
+> https://lenguajejs.com/
+
+<br>
+<br>
+<br>
+
 # Peticiones HTTP con Fetch
 
 > https://www.freecodecamp.org/espanol/news/tutorial-de-fetch-api-en-javascript-con-ejemplos-de-js-fetch-post-y-header/ (mas sobre HTTP)
@@ -86,9 +96,7 @@ El parámetro opcional "options" , puede tener estas propiedades
 <br>
 <br>
 
-> https://lenguajejs.com/javascript/peticiones-http/cors/ > <br> <br>
-> <br>
-> <br>
+> https://lenguajejs.com/javascript/peticiones-http/cors/ > <br> <br> > <br> > <br>
 
 # Async - Await
 
@@ -214,3 +222,11 @@ readFile("./texto.txt")
 .FINALLY() - Es el metodo que cierra por completo la promesa independientemente el estado en el cual llego (bueno o malo) , este no recibe parametros ni nada por el estilo , simplemente es un pasamanos al metodo catch que es el que realmente muestra un estado de la promesa.
 </li>
 </Ul>
+<br>
+<br>
+
+# OOP (Comming soon)
+
+# Objetos (Comming soon)
+
+# Arrays (Comming soon)
