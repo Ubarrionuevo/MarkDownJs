@@ -443,6 +443,8 @@ sortedNames === names; // true
 
 ## Destructuring of Arrays (cooming son)
 
+> https://lenguajejs.com/javascript/arrays/desestructuracion-arrays/
+
 ## Class
 
 una clase sólo es una forma de organizar código de forma entendible con el objetivo de simplificar el funcionamiento de nuestro programa. Además, hay que tener en cuenta que las clases son «conceptos abstractos» de los que se pueden crear objetos de programación, cada uno con sus características concretas.
