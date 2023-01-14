@@ -3,6 +3,17 @@
 <br>
 <br>
 
+> ## Thinks that i dont know if are necesary in this moment
+
+>  <li>Expresiones regulares ?</li>
+> <li>Typescript</li>
+> <li>WebPack</li>
+> <li>Babel</li>
+
+<br>
+<br>
+<br>
+
 # Resources
 
 > https://lenguajejs.com/
@@ -227,7 +238,7 @@ readFile("./texto.txt")
 
 ---
 
-# Objetos
+# OBJETCS
 
 Que es un objeto?
 
@@ -321,8 +332,132 @@ player.power = 10;
 
 ## Destructuracion de objetos (me sirve?)
 
-# Arrays (Comming soon)
+# OOP
 
-# OOP (Comming soon)
+Es un estilo de programación muy utilizado, donde creas y utilizas estructuras de datos de una forma muy similar a la vida real, lo que facilita considerablemente la forma de planificar y preparar el código de tus programas o aplicaciones.
 
-# Expresiones regulares ?
+<strong> Es una palabra clave que se utiliza dentro de una clase para hacer referencia al objeto instanciado , no a la clases (no confundir)</strong>
+
+```js
+class Animal {
+  name; // Propiedad (variable de clase sin valor definido)
+
+  constructor(name) {
+    this.name = name; // Hacemos referencia a la propiedad name del objeto instanciado
+  }
+}
+```
+
+## Class
+
+una clase sólo es una forma de organizar código de forma entendible con el objetivo de simplificar el funcionamiento de nuestro programa. Además, hay que tener en cuenta que las clases son «conceptos abstractos» de los que se pueden crear objetos de programación, cada uno con sus características concretas.
+
+Las variables y constantes incluidas en una clase se denominan propiedades, y se utilizan para guardar información relacionada (se suele denominar estado). Por otro lado, las funciones incluidas en una clase se denominan métodos y se utilizan para realizar una acción relacionada con la clase
+<br>
+<br>
+![Clases](/img/clase.PNG)
+<br>
+<br>
+
+<strong> instanciar una clase, crear un objeto o crear una instancia a la acción de crear un nuevo objeto basado en una clase particular </strong>
+
+Las clases deben siempre empezar en mayúsculas (nomenclatura llamada PascalCase)
+
+```js
+// Declaración de una clase (de momento, vacía)
+class Animal {}
+
+// Crear (instanciar) un objeto basada en una clase
+const pato = new Animal();
+```
+
+```js
+//Las propiedades a grandes rasgos son las variables de clases
+
+//Los metodos a gradnes rasgos son las funcionesd entro de las clases
+class Animal {
+  // Propiedades
+  name = "Garfield";
+  type = "cat";
+
+  // Métodos
+  hablar() {
+    return "Odio los lunes.";
+  }
+}
+```
+
+## Propiedades Computadas
+
+Son un tipo de propiedad que se declara como una funcion , y que se ejecuta cuando accedemos a la propiedad con dicho nombre-
+
+### Getters
+
+```js
+class Personaje {
+  name;
+  energy;
+
+  constructor(name, energy = 10) {
+    this.name = name;
+    this.energy = energy;
+  }
+
+  get status() {
+    return "⭐".repeat(this.energy);
+  }
+}
+
+const mario = new Personaje("Mario");
+mario.energy; // 10
+mario.status; // '⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐'
+```
+
+Observa que aunque la definimos como una función status(), luego accedemos a ella como una propiedad mario.status. Por eso se llama propiedad computada. <strong>La idea de este tipo de propiedades, es permitir pequeñas modificaciones sobre propiedades ya existentes (en nuestro caso, energy). En lugar de devolver el valor numérico, devolvemos el número de estrellas que representa la vida del personaje.
+</strong>
+
+### Setters
+
+```js
+class Personaje {
+  name;
+  energy;
+
+  constructor(name, energy = 10) {
+    this.name = name;
+    this.energy = energy;
+  }
+
+  get status() {
+    return "⭐".repeat(this.energy);
+  }
+
+  set status(stars) {
+    this.energy = stars.length;
+  }
+}
+
+const mario = new Personaje("Mario");
+mario.energy; // 10
+mario.status = "⭐⭐⭐";
+mario.energy; // 3
+mario.status; // '⭐⭐⭐'
+```
+
+Observa que ahora la "magia" está en el set status(stars). Se comporta como una función, y al asignar tres estrellas a mario.status, automágicamente se ha cambiado el valor de mario.energy. Estas propiedades computadas nos pueden venir muy bien cuando queramos modificar ligeramente ciertos elementos de una forma automática y organizada.
+
+## Methods
+
+## Herency
+
+## Mixins
+
+## Try..Catch
+
+## This (mucho cuidado como se utiliza .this)
+
+# Destructuring
+
+# SPREAD OPERATOR
+
+# # ARRAYS (Comming soon) - IMPORTANT
