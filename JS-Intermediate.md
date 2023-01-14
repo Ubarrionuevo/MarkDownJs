@@ -7,7 +7,7 @@
 
 > https://lenguajejs.com/
 
-> https://lenguajejs.com/
+> https://es.javascript.info/callbacks
 
 <br>
 <br>
@@ -225,8 +225,104 @@ readFile("./texto.txt")
 <br>
 <br>
 
-# OOP (Comming soon)
+---
 
-# Objetos (Comming soon)
+# Objetos
+
+Que es un objeto?
+
+En Javascript, existe un tipo de dato llamado objeto . Una primera forma de verlo, es como una variable especial que puede contener más variables en su interior. De esta forma, tenemos la posibilidad de organizar múltiples variables de la misma temática en el interior de un objeto.
+
+Forma en que se llamaban los objetos
+
+```js
+const objeto = new Object(); // Evitar esta sintaxis en Javascript (no se suele usar)
+```
+
+Forma mas optima
+
+> Los literales de los objetos en Javascript son las llaves {}. Este ejemplo es equivalente al anterior, pero es más corto, rápido y cómodo, por lo que se aconseja declararlos siempre así:
+
+```js
+const objeto = {}; // Esto es un objeto vacío
+```
+
+## Metodos de un objeto
+
+```js
+const user = {
+  name: "Manz",
+  talk: function () {
+    return "Hola";
+  },
+};
+
+user.name; // Es una variable (propiedad), devuelve "Manz"
+user.talk(); // Es una función (método), se ejecuta y devuelve "Hola"
+```
+
+## Metodos especificos que podemos utilizar dentro del objet
+
+```js
+const number = 42.5;
+number.toString(); // Devuelve "42.5" (Método de variables de tipo Object)
+number.toLocaleString(); // Devuelve "42,5" (Método de variables de tipo Object)
+number.toFixed(3); // Devuelve "42.500" (Método de variables de tipo Number)
+```
+
+```js
+const player = {
+  name: "Manz", // Nombre del jugador
+  life: 4, // Cantidad de vida actual
+  totalLife: 6, // Máximo de vida posible
+  toString: function () {
+    return `${this.name} (${this.life}/${this.totalLife})`;
+  },
+};
+//en este console estamos lamando al metodo toString indirectamente , ya que concatenamos un comentario mas un objeto , como no es de tipo string , se dispara el metodo anteriormente aplicado.
+console.log("Mi jugador es " + player); // "Mi jugador es Manz (4/6)"
+```
+
+<br>
+<br>
+<br>
+
+## Propiedades de un objeto
+
+Podemos acceder a las propiedades del objeto de dos formas (corchetes o punto)
+
+<strong>La notacion de puntos es la mas utilizada</strong>
+
+```js
+// Notación con puntos (preferida)
+console.log(player.name); // Muestra "Manz"
+console.log(player.life); // Muestra 99)
+```
+
+Menos utilizada
+
+```js
+// Notación con corchetes
+console.log(player["name"]); // Muestra "Manz"
+console.log(player["life"]); // Muestra 99
+```
+
+Podemos agregar propiedades al objeto aunque ya este creado , a trasves de la notacion de puntos
+
+```js
+const player = {};
+
+player.name = "Manz";
+player.life = 99;
+player.power = 10;
+```
+
+## Iteradores de objetos (me sirve?)
+
+## Destructuracion de objetos (me sirve?)
 
 # Arrays (Comming soon)
+
+# OOP (Comming soon)
+
+# Expresiones regulares ?
