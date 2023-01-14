@@ -348,6 +348,101 @@ class Animal {
 }
 ```
 
+# ARRAYS
+
+Manera ideal para javascript
+
+```js
+// Mediante literales (notación preferida)
+const letters = ["a", "b", "c"]; // Array con 3 elementos
+const letters = []; // Array vacío (0 elementos)
+const letters = ["a", 5, true]; // Array mixto (String, Number, Boolean)
+```
+
+El operador [] no sólo nos permite obtener o acceder a un elemento del array, sino que también nos permite modificar un elemento específico del array, si utilizamos la asignación:
+
+```js
+const letters = ["a", "b", "c"];
+
+letters[1] = "Z"; // Devuelve "Z" y modifica letters a ["a", "Z", "c"]
+letters[3] = "D"; // Devuelve "D" y modifica letters a ["a", "Z", "c", "D"]
+letters[5] = "A"; // Devuelve "A" y modifica letters a ["a", "Z", "c", "D", undefined, "A"]
+```
+
+Añadir un elemento o quitar
+
+```js
+const elements = ["a", "b", "c"]; // Array inicial
+
+elements.push("d"); // Devuelve 4.   Ahora elements = ['a', 'b', 'c', 'd']
+elements.pop(); // Devuelve 'd'. Ahora elements = ['a', 'b', 'c']
+
+elements.unshift("Z"); // Devuelve 4.   Ahora elements = ['Z', 'a', 'b', 'c']
+elements.shift(); // Devuelve 'Z'. Ahora elements = ['a', 'b', 'c']
+```
+
+<strong>.concat() - no es lo mismo que .push()</strong>
+
+.contact() itera arrays pero repitiendolos
+.push() itera un nuevo array al existente pero diferente al mismo
+.push() inserta un array , en cambio .catch() inserta elementos.
+
+```js
+const firstPart = [1, 2, 3];
+const secondPart = [4, 5, 6];
+
+firstPart.concat(firstPart); // Devuelve [1, 2, 3, 1, 2, 3]
+firstPart.concat(secondPart); // Devuelve [1, 2, 3, 4, 5, 6]
+
+// Se pueden pasar elementos sueltos
+firstPart.concat(4, 5, 6); // Devuelve [1, 2, 3, 4, 5, 6]
+
+// Se pueden concatenar múltiples arrays e incluso mezclarlos con elementos sueltos
+firstPart.concat(firstPart, secondPart, 7); // Devuelve [1, 2, 3, 1, 2, 3, 4, 5, 6, 7]
+```
+
+Reducir el tamaño de un array , muy sencilo
+
+<strong>(variable.length = tamaño nuevo del array)</strong>
+
+```js
+// Mediante .length
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+numbers.length = 4;
+
+numbers; // [1, 2, 3, 4], numbers cambia
+```
+
+Ordenamiento de arrays
+
+![ordenamient](/img/arerat3.PNG)
+
+Metodo .reverse
+
+```js
+const elements = ["A", "B", "C", "D", "E", "F"];
+
+const reversedElements = elements.reverse();
+
+reversedElements; // ["F", "E", "D", "C", "B", "A"]
+elements; // ["F", "E", "D", "C", "B", "A"]
+reversedElements === elements; // true
+```
+
+Metodo Sort
+
+```js
+const names = ["Alberto", "Zoe", "Ana", "Mauricio", "Bernardo"];
+
+const sortedNames = names.sort();
+
+sortedNames; // ["Alberto", "Ana", "Bernardo", "Mauricio", "Zoe"]
+names; // ["Alberto", "Ana", "Bernardo", "Mauricio", "Zoe"]
+sortedNames === names; // true
+```
+
+## Destructuring of Arrays (cooming son)
+
 ## Class
 
 una clase sólo es una forma de organizar código de forma entendible con el objetivo de simplificar el funcionamiento de nuestro programa. Además, hay que tener en cuenta que las clases son «conceptos abstractos» de los que se pueden crear objetos de programación, cada uno con sus características concretas.
@@ -385,6 +480,107 @@ class Animal {
     return "Odio los lunes.";
   }
 }
+```
+
+## ARRAY FUNCTIONS
+
+Basicamente son metodos que tienen cualqueir variable de tipo ARRAY y que permite realizar una operacion particular con todos los elementos de dicho array
+
+Al metodo se le pasa como parametro una funcion callback y parametros opcionales.
+
+![arrayfunctions](/img/array%20functions.PNG)
+![arrayfunctions](/img/array%20functions%202.PNG)
+
+El mas importante , que se utiliza con frecuencia
+
+### For Each
+
+Basicamente es un metodo que te pide por parametro una accion , la cual la replicara en todos los elementos del array , especie de bucle comun.
+
+<li>Primer parametro : pasa el elemento</li>
+<li>Segundo Parametro : pasa la posicion del array</li>
+<li>Tercer Parametro pasa el array en cuestion</li>
+
+```js
+const letters = ["a", "b", "c", "d"];
+
+letters.forEach((element) => console.log(element)); // Devuelve 'a' / 'b' / 'c' / 'd'
+letters.forEach((element, index) => console.log(element, index)); // Devuelve 'a' 0 / 'b' 1 / 'c' 2 / 'd' 3
+letters.forEach((element, index, array) => console.log(array[0])); // Devuelve 'a' / 'a' / 'a' / 'a'
+```
+
+### Maps
+
+Este metodo nos va a devolver un nuevo array donde cada uno de sus elementos sera lo que devuelva la funcion callback por cada uno de los elementos del array original
+
+```js
+const names = ["Ana", "Pablo", "Pedro", "Pancracio", "Heriberto"];
+const nameSizes = names.map((name) => name.length);
+
+nameSizes; // Devuelve [3, 5, 5, 9, 9]
+```
+
+Observa que el array devuelto por map() es nameSizes, y cada uno de los elementos que lo componen, es el número devuelto por el callback (name.length), que no es otra cosa sino el tamaño de cada .
+
+### Filter
+
+Nos permite filtrar los elementos de un array y devolver un nuevo array con solo los elementos que queramos.
+
+```js
+const names = ["Ana", "Pablo", "Pedro", "Pancracio", "Heriberto"];
+const filteredNames = names.filter((name) => name.startsWith("P"));
+
+filteredNames; // Devuelve ['Pablo', 'Pedro', 'Pancracio']
+```
+
+### Find / FindIndex
+
+Uno devuelve el elemento (find()) , el otro devuelve la posicion del elemento en el array (findIndex())
+
+```js
+const names = ["Ana", "Pablo", "Pedro", "Pancracio", "Heriberto"];
+
+names.find((name) => name.length == 5); // 'Pablo'
+names.findIndex((name) => name.length == 5); // 1
+```
+
+### FindLastIndex / FindLast
+
+Buscan elementos pero desde derecha a izquierda
+
+```js
+const names = ["Ana", "Pablo", "Pedro", "Pancracio", "Heriberto"];
+
+names.findLast((name) => name.length == 5); // 'Pedro'
+names.findLastIndex((name) => name.length == 5); // 2
+```
+
+### Reduce / ReduceRight
+
+Basicamente estos metodos cuentan todos los elementos del array , los suma y devuelve un resultado final.
+
+tiene como parameteros (first , second , iteration , array)
+
+first contiene el valor del primer elemento , y second del segundo.
+
+First es el acumulador que contiene lo que devolvio el callback en la iteracion anterior , mientras que second es el siguiente elemento del array
+
+<br>
+<br>
+
+```js
+const numbers = [95, 5, 25, 10, 25];
+numbers.reduce((first, second) => {
+  console.log(`F=${first} S=${second}`);
+  return first + second;
+});
+
+// F=95  S=5    (1ª iteración: elemento 1: 95 + elemento 2: 5) = 100
+// F=100 S=25   (2ª iteración: 100 + elemento 3: 25) = 125
+// F=125 S=10   (3ª iteración: 125 + elemento 4: 10) = 135
+// F=135 S=25   (4ª iteración: 135 + elemento 5: 25) = 160
+
+// Finalmente, devuelve 160
 ```
 
 ## Propiedades Computadas
@@ -446,9 +642,9 @@ mario.status; // '⭐⭐⭐'
 
 Observa que ahora la "magia" está en el set status(stars). Se comporta como una función, y al asignar tres estrellas a mario.status, automágicamente se ha cambiado el valor de mario.energy. Estas propiedades computadas nos pueden venir muy bien cuando queramos modificar ligeramente ciertos elementos de una forma automática y organizada.
 
-## Methods
+## Methods CLASS
 
-## Herency
+## Herency CLASS
 
 ## Mixins
 
@@ -456,8 +652,16 @@ Observa que ahora la "magia" está en el set status(stars). Se comporta como una
 
 ## This (mucho cuidado como se utiliza .this)
 
+# CONSTRUCTUR , OPERADOR NEW
+
+> https://es.javascript.info/
+
+# ENCADENAMIENTO OPCIONAL ?.
+
+> https://es.javascript.info/
+
+---
+
 # Destructuring
 
 # SPREAD OPERATOR
-
-# # ARRAYS (Comming soon) - IMPORTANT
